@@ -1,5 +1,6 @@
 :root {
   --clr-primary: #E14D2A;
+  --clr-secondary: #FBC223;
 }
 
 *, *::before, *::after {
@@ -10,4 +11,29 @@
 
 body {
   background-color: var(--clr-primary);
+  font-family: 'Raleway', sans-serif;
+}
+
+.header {
+  display: grid;
+  place-items: center;
+  margin-top: 1rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  width: 60px;
+  height: auto;
+}
+.title {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 3rem;
+}
+.subtitle {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: var(--clr-secondary);
+  opacity: 0.7;
 }
