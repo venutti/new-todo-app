@@ -20,7 +20,7 @@ body {
   cursor: pointer;
   background-color: inherit;
   color: inherit;
-  transition: opacity 300ms ease-in-out;
+  transition: opacity 200ms ease-in-out;
 }
 .btn:hover {
   opacity: 0.7;
@@ -58,7 +58,7 @@ body {
 }
 @media (min-width: 750px) {
   .main {
-    grid-template-columns: 250px 400px;
+    grid-template-columns: 250px 450px;
   }
 }
 .all-tasks {
@@ -87,7 +87,6 @@ body {
 .new-item-form {
   display: flex;
   align-items: center;
-  
 }
 .new-task-list-button {
   font-size: 2rem;
@@ -111,6 +110,100 @@ body {
   border-color: var(--clr-secondary);
 }
 
-.todo-list {
-  max-width: 400px;
+@media (max-width: 750px) {
+  .todo-list {
+    width: 90vw;
+  }
+}
+.todo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: var(--spacing);
+  gap: 0.3rem;
+  background-color: #d4d4d4;
+}
+.list-title {
+  font-size: 2rem;
+}
+.task-count {
+  opacity: 0.7;
+}
+.todo-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  padding: var(--spacing);
+  background-color: whitesmoke;
+}
+.task {
+  position: relative;
+}
+[type="checkbox"] {
+  position: absolute;
+  outline: none;
+  right: 100%;
+  opacity: 0;
+}
+.task {
+  border-bottom: 2px solid #d4d4d4;
+}
+.task label {
+  --size: 1.2rem;
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  gap: calc(var(--size) / 2);
+  padding: var(--spacing) 0.3rem;
+}
+.custom-checkbox {
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px var(--clr-primary);
+  transform: scale(1);
+  transition: box-shadow 200ms ease-in-out;
+}
+.task:hover label,
+[type="checkbox"]:focus + label {
+  color: var(--clr-primary);
+}
+.task:hover label .custom-checkbox,
+[type="checkbox"]:focus + label .custom-checkbox {
+  transform: scale(1.1);
+}
+[type="checkbox"]:checked + label .custom-checkbox {
+  box-shadow: inset 0 0 0 6px var(--clr-primary);
+}
+.task label::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #8a8a8a;
+  right: 0;
+  transition: width 200ms ease-in-out;
+}
+[type="checkbox"]:checked + label::after {
+  width: calc(100% - var(--size) - var(--size) / 2);
+}
+.new-todo-button {
+  font-size: 2rem;
+  padding: 0.3rem;
+}
+.new-todo-input {
+  width: 80%;
+}
+.new-todo-input:focus {
+  border-color: var(--clr-primary);
+}
+.delete-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.delete-button {
+  font-size: 0.8rem;
 }
