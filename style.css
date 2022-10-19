@@ -21,11 +21,15 @@ body {
   background-color: inherit;
   color: inherit;
   transition: opacity 200ms ease-in-out;
+  font-family: inherit;
+  font-size: 2rem;
+  padding: 0.3rem;
 }
 .btn:hover {
   opacity: 0.7;
 }
 
+/*HEADER*/
 .header {
   display: grid;
   place-items: center;
@@ -34,6 +38,7 @@ body {
 .logo {
   display: flex;
   align-items: center;
+  gap: var(--spacing);
 }
 .logo img {
   width: 60px;
@@ -50,6 +55,7 @@ body {
   opacity: 0.7;
 }
 
+/*MAIN*/
 .main {
   display: grid;
   gap: var(--spacing);
@@ -61,10 +67,11 @@ body {
     grid-template-columns: 250px 450px;
   }
 }
+/*ALL TASKS*/
 .all-tasks {
   color: whitesmoke;
   padding: var(--spacing);
-  max-width: 250px;
+  margin-top: var(--spacing);
 }
 .task-list-title {
   font-size: 1.3rem;
@@ -78,19 +85,16 @@ body {
   margin: var(--spacing) 0;
 }
 .list-name.active-list {
+  color: var(--clr-secondary);
   font-weight: 700;
 }
 .list-name:hover {
   opacity: 0.7;
 }
-
+/*FORM NEW ITEM*/
 .new-item-form {
   display: flex;
   align-items: center;
-}
-.new-task-list-button {
-  font-size: 2rem;
-  padding: 0.3rem;
 }
 .new-item-input {
   order: 2;
@@ -109,7 +113,12 @@ body {
 .new-item-input:focus {
   border-color: var(--clr-secondary);
 }
-
+/*TODO LIST*/
+.todo-list {
+  --spacing-sm: 0.3rem;
+  --clr-grey: #D4D4D4;
+  background-color: whitesmoke;
+}
 @media (max-width: 750px) {
   .todo-list {
     width: 90vw;
@@ -121,8 +130,8 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   padding: var(--spacing);
-  gap: 0.3rem;
-  background-color: #d4d4d4;
+  gap: var(--spacing-sm);
+  background-color: var(--clr-grey);
 }
 .list-title {
   font-size: 2rem;
@@ -135,19 +144,16 @@ body {
   flex-direction: column;
   gap: var(--spacing);
   padding: var(--spacing);
-  background-color: whitesmoke;
 }
 .task {
   position: relative;
+  border-bottom: 2px solid var(--clr-grey);
 }
 [type="checkbox"] {
   position: absolute;
   outline: none;
   right: 100%;
   opacity: 0;
-}
-.task {
-  border-bottom: 2px solid #d4d4d4;
 }
 .task label {
   --size: 1.2rem;
@@ -183,19 +189,12 @@ body {
   position: absolute;
   width: 0;
   height: 2px;
-  background-color: #8a8a8a;
+  background-color: currentColor;
   right: 0;
   transition: width 200ms ease-in-out;
 }
 [type="checkbox"]:checked + label::after {
   width: calc(100% - var(--size) - var(--size) / 2);
-}
-.new-todo-button {
-  font-size: 2rem;
-  padding: 0.3rem;
-}
-.new-todo-input {
-  width: 80%;
 }
 .new-todo-input:focus {
   border-color: var(--clr-primary);
