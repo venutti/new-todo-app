@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@600&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="img/correcto.png" type="image/x-icon">
+  <script type="module" src="src/main.js" defer></script>
 </head>
 <body>
 
@@ -24,17 +25,14 @@
   <main class="main">
     <article class="all-tasks">
       <h3 class="task-list-title">Mis tareas</h3>
-      <ul class="task-list">
-        <li class="list-name">Inbox</li>
-        <li class="list-name active-list">Programar</li>
-        <li class="list-name">Facultad</li>
-      </ul>
-      <form class="new-item-form">
+      <ul class="task-list" data-lists></ul>
+      <form class="new-item-form" data-add-list-form>
         <input 
           class="new-item-input" 
           type="text" 
           placeholder="Nuevo proyecto" 
           aria-label="Nuevo proyecto"
+          data-add-list-input
         />
         <button 
           class="btn" 
@@ -42,44 +40,20 @@
       </form>
     </article>
 
-    <article class="todo-list">
+    <article class="todo-list" data-todo-list>
       <div class="todo-header">
-        <h3 class="list-title">Programar</h3>
-        <p class="task-count">3 tareas restantes</p>
+        <h3 class="list-title" data-list-title></h3>
+        <p class="task-count" data-list-count></p>
       </div>
       <div class="todo-body">
-        <div class="tasks">
-          <div class="task">
-            <input type="checkbox" id="task-1">
-            <label for="task-1">
-              <span class="custom-checkbox"></span>
-              Crear pruebas
-            </label>
-          </div>
-          <!-- / TASK 1 -->
-          <div class="task">
-            <input type="checkbox" id="task-2">
-            <label for="task-2">
-              <span class="custom-checkbox"></span>
-              Rehacer UML
-            </label>
-          </div>
-          <!-- / TASK 2 -->
-          <div class="task">
-            <input type="checkbox" id="task-3">
-            <label for="task-3">
-              <span class="custom-checkbox"></span>
-              Mejorar interfaz (UI)
-            </label>
-          </div>
-          <!-- / TASK 3 -->
-        </div>
-        <form class="new-item-form">
+        <div class="tasks" data-tasks></div>
+        <form class="new-item-form" data-add-todo-form>
           <input 
             class="new-item-input new-todo-input" 
             type="text" 
             placeholder="Nueva tarea" 
             aria-label="Nueva tarea"
+            data-add-todo-input
           />
           <button 
             class="btn" 
@@ -87,7 +61,7 @@
         </form>
         <div class="delete-buttons">
           <button class="btn delete-button">Borrar tareas completas</button>
-          <button class="btn delete-button">Eliminar lista</button>
+          <button class="btn delete-button" data-delete-list-button>Eliminar lista</button>
         </div>
       </div>
     </article>
