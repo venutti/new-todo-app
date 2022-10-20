@@ -14,6 +14,9 @@ const addTodoForm = document.querySelector("[data-add-todo-form]");
 const addTodoInput = document.querySelector("[data-add-todo-input]");
 
 const deleteListButton = document.querySelector("[data-delete-list-button]");
+const deleteCompletedButton = document.querySelector(
+  "[data-delete-completed-button]"
+);
 
 let lists;
 let selectedListId;
@@ -68,8 +71,13 @@ export default class UI {
     tasksContainer.addEventListener("click", (e) => {
       if (e.target.tagName.toLowerCase() === "input") {
         lists.toggleCompleteTodo(selectedListId, e.target.id);
-        UI.save();
+        UI.renderAndSave();
       }
+    });
+
+    deleteCompletedButton.addEventListener("click", () => {
+      lists.deleteCompleted(selectedListId);
+      UI.renderAndSave();
     });
   }
 
@@ -133,7 +141,7 @@ export default class UI {
   }
 
   static formatCount(list) {
-    const taskCount = list.todoList.length;
+    const taskCount = list.countIncomplete();
     const taskString = taskCount === 1 ? "tarea" : "tareas";
     const taskRemainingString = taskCount === 1 ? "restante" : "restantes";
     return `${taskCount} ${taskString} ${taskRemainingString}`;

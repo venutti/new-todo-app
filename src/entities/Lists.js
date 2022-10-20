@@ -46,6 +46,14 @@ export default class Lists {
     this.find(listId).toggleCompleteTodo(todoId);
   }
 
+  countIncomplete(listId) {
+    return this.find(listId).countIncomplete();
+  }
+
+  deleteCompleted(listId) {
+    this.find(listId).deleteCompleted();
+  }
+
   getData() {
     return this.lists.map((todoList) => todoList.getData());
   }

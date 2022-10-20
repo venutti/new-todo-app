@@ -32,6 +32,18 @@ export default class TodoList {
     this.find(todoId).toggleComplete();
   }
 
+  getIncompletedTodos() {
+    return this.todoList.filter((todo) => !todo.isCompleted());
+  }
+
+  countIncomplete() {
+    return this.getIncompletedTodos().length;
+  }
+
+  deleteCompleted() {
+    this.todoList = this.getIncompletedTodos();
+  }
+
   getData() {
     return {
       name: this.name,
